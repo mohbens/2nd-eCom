@@ -19,3 +19,8 @@
 .card {
 	margin-bottom: 20px;
 }
+
+img.large {
+	max-width: 100%;
+	border-radius: 5px;
+}
