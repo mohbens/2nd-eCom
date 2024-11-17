@@ -1,6 +1,25 @@
 import cors from "cors";
-import express, { Request, Response } from "express";
-import { sampleProducts } from "./data";
+import dotenv from "dotenv";
+import express from "express";
+// import { sampleProducts } from "./data";
+import mongoose from "mongoose";
+import { productRouter } from "./routers/productRouter";
+import { seedRouter } from "./routers/seedRouter";
+
+dotenv.config();
+
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/TSAMAZONDB";
+
+mongoose.set("strictQuery", true);
+
+mongoose
+	.connect(MONGODB_URI)
+	.then(() => {
+		console.log("connected to mongodb");
+	})
+	.catch(() => {
+		console.log("error mongodb");
+	});
 
 const app = express();
 app.use(
@@ -10,13 +29,16 @@ app.use(
 	})
 );
 
-app.get("/api/products", (req: Request, res: Response) => {
-	res.json(sampleProducts);
-});
+app.use("/api/products", productRouter);
+app.use("/api/seed", seedRouter);
 
-app.get("/api/products/:slug", (req: Request, res: Response) => {
-	res.json(sampleProducts.find((x) => x.slug === req.params.slug));
-});
+// app.get("/api/products", (req: Request, res: Response) => {
+// 	res.json(sampleProducts);
+// });
+
+// app.get("/api/products/:slug", (req: Request, res: Response) => {
+// 	res.json(sampleProducts.find((x) => x.slug === req.params.slug));
+// });
 
 const PORT = 4000;
 app.listen(PORT, () => {

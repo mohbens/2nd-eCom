@@ -24,3 +24,12 @@ img.large {
 	max-width: 100%;
 	border-radius: 5px;
 }
+.navbar .container {
+	/* background-color: aqua; */
+}
+.navbar-nav {
+	/* background-color: brown; */
+	display: flex !important;
+	flex-direction: row;
+	/* width: 150px; */
+}
