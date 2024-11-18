@@ -14,7 +14,7 @@ export default function ProductPage() {
 
 	const {
 		data: product,
-		refetch,
+
 		isLoading,
 		error,
 	} = useGetProductsDetailsBySlugQuery(slug!);
