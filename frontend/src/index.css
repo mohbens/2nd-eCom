@@ -33,3 +33,6 @@ img.large {
 	flex-direction: row;
 	/* width: 150px; */
 }
+img.thumbnail {
+	height: 80px;
+}

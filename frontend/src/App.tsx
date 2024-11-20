@@ -3,6 +3,7 @@ import { Badge, Button, Container, Nav, Navbar } from "react-bootstrap";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link, Outlet } from "react-router-dom";
+import { LinkContainer } from "react-router-bootstrap";
 
 import { Store } from "./Store";
 
@@ -24,7 +25,9 @@ function App() {
 			<header>
 				<Navbar expand="lg">
 					<Container className="">
-						<Navbar.Brand>AmazonTS</Navbar.Brand>
+						<LinkContainer to="/">
+							<Navbar.Brand>AmazonTS</Navbar.Brand>
+						</LinkContainer>
 					</Container>
 					<Nav className=" w-">
 						<Button variant={mode} onClick={switchModeHandler}>

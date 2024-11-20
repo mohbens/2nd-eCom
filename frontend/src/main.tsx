@@ -15,6 +15,7 @@ import ProductPage from "./pages/ProductPage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { StoreProvider } from "./Store";
+import CartPage from "./pages/CartPage";
 // import axios from "axios";
 
 // axios.defaults.baseURL =
@@ -25,6 +26,7 @@ const router = createBrowserRouter(
 		<Route path="/" element={<App />}>
 			<Route index={true} element={<HomePage />} />
 			<Route path="product/:slug" element={<ProductPage />} />
+			<Route path="cart" element={<CartPage />} />
 			{/* <Route path="dashboard" element={<Dashboard />} /> */}
 			{/* ... etc. */}
 		</Route>
