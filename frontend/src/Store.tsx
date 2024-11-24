@@ -1,12 +1,17 @@
 import React from "react";
 import { Cart, CartItem } from "./types/Cart";
+import { UserInfo } from "./types/UserInfo";
 
 type AppState = {
 	mode: string;
 	cart: Cart;
+	userInfo?: UserInfo;
 };
 
 const initialState: AppState = {
+	userInfo: localStorage.getItem("userInfo")
+		? JSON.parse(localStorage.getItem("userInfo")!)
+		: null,
 	mode: localStorage.getItem("mode")
 		? localStorage.getItem("mode")!
 		: window.matchMedia &&
@@ -32,7 +37,9 @@ const initialState: AppState = {
 type Action =
 	| { type: "SWITCH_MODE" }
 	| { type: "CART_ADD_ITEM"; payload: CartItem }
-	| { type: "CART_REMOVE_ITEM"; payload: CartItem };
+	| { type: "CART_REMOVE_ITEM"; payload: CartItem }
+	| { type: "USER_SIGNIN"; payload: UserInfo }
+	| { type: "USER_SIGNOUT" };
 
 function reducer(state: AppState, action: Action): AppState {
 	switch (action.type) {
@@ -57,7 +64,8 @@ function reducer(state: AppState, action: Action): AppState {
 			localStorage.setItem("cartItem", JSON.stringify(cartItems));
 			return { ...state, cart: { ...state.cart, cartItems } };
 		}
-
+		case "USER_SIGNIN":
+			return { ...state, userInfo: action.payload };
 		default:
 			return state;
 	}
