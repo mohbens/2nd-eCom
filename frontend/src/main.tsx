@@ -18,6 +18,7 @@ import { StoreProvider } from "./Store";
 import CartPage from "./pages/CartPage";
 import SigninPage from "./pages/SigninPage";
 import SignupPage from "./pages/Signup";
+import ShippingAddressPage from "./pages/ShippingAddressPage";
 // import axios from "axios";
 
 // axios.defaults.baseURL =
@@ -30,7 +31,8 @@ const router = createBrowserRouter(
 			<Route path="product/:slug" element={<ProductPage />} />
 			<Route path="cart" element={<CartPage />} />
 			<Route path="/signin" element={<SigninPage />} />
-			<Route path="/signup" element={<SignupPage />} />
+			<Route path="/signup" element={<SignupPage />} />{" "}
+			<Route path="/shipping" element={<ShippingAddressPage />} />
 			{/* <Route path="dashboard" element={<Dashboard />} /> */}
 			{/* ... etc. */}
 		</Route>
