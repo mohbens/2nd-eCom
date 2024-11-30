@@ -23,6 +23,7 @@ import PaymentMethodPage from "./pages/PaymentMethodPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import PlaceOrderPage from "./pages/PlaceOrderPage";
 import OrderPage from "./pages/OrderPage";
+import OrderHistoryPage from "./pages/OrderHistoryPage";
 // import axios from "axios";
 
 // axios.defaults.baseURL =
@@ -41,6 +42,7 @@ const router = createBrowserRouter(
 				<Route path="/payment" element={<PaymentMethodPage />} />
 				<Route path="/placeorder" element={<PlaceOrderPage />} />
 				<Route path="/order/:id" element={<OrderPage />} />
+				<Route path="/orderhistory" element={<OrderHistoryPage />} />
 			</Route>
 			{/* <Route path="dashboard" element={<Dashboard />} /> */}
 			{/* ... etc. */}
